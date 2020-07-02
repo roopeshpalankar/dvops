@@ -1,0 +1,43 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+name: $(Build.DefinitionName)_$(Build.SourceBranchName).$(rev:r)
+
+trigger:
+- master
+pool:
+  name: Private-Win2016
+
+variables:
+  terraform-project-folder-name: 'kpoint'
+  azure-subscription: ''
+
+steps:
+- task: CopyFiles@2
+  displayName: 'Copy Terraform files'
+  inputs:
+    SourceFolder: $(terraform-project-folder-name)
+    Contents: '**'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)/terraform'
+
+- task: CopyFiles@2
+  displayName: 'Copy Terraform modules folder'
+  inputs:
+    SourceFolder: modules
+    TargetFolder: '$(Build.ArtifactStagingDirectory)/modules'
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish artifacts'
+  inputs:
+    ArtifactName: '_$(Build.DefinitionName)'
+
+- task: AzureCLI@2
+  displayName: 'Terraform Init'
+  inputs:
+    azureSubscription: $(azure-subscription)
+    scriptType: Bat
+    scriptLocation: inlineScript
+    workingDirectory: '$(System.DefaultWorkingDirectory)/$(terraform-project-folder-name)'
+    inlineScript: 'terraform init -no-color -backend=false '

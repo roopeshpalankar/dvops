@@ -1,0 +1,24 @@
+subscription_id         = ""
+client_secret           = ""
+tenant_id               = ""
+client_id               = ""
+
+region                  = "use"
+application_rg_location ="eastus"
+
+tags = {
+		BusinessOwner    = "Admin Xor"
+		BusinessContact  = "admin@xoriant.com"
+		Environment      = "Non-Prod"
+		Platform         = "Azure Commercial Cloud"
+		Node             = "Spoke"
+		Version          = "1.0"		
+}
+
+#Resource Group
+resource_group_name = "__resource_group_name__"
+
+#SQL Server 
+sql_server_name                  = "__sql_server_name__"
+sqlserveradmin_password          = "__sqlserveradmin_password__"
+
