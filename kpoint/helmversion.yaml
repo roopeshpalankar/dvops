@@ -1,25 +1,11 @@
----
-apiVersion: kustomize.config.k8s.io/v1beta1
-kind: Kustomization
-namespace: vault
-
-# make sure namespace exists
-resources:
-- namespace.yaml
-
-# custom index.html file
-
-
-#vault helm chart
-helmChartInflationGenerator:
-- chartName: vault
-  chartRepoUrl: https://helm.releases.hashicorp.com
-  chartVersion: 0.22.0
-  releaseName: vault
-  releaseNamespace: vault
-  # override with these custom values
-  values: values.yaml
-
-generatorOptions:
-  disableNameSuffixHash: true
-
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: argocd
+spec:
+  ...
+  source:
+    chart: argo-cd
+    repoURL: https://argoproj.github.io/argo-helm
+    targetRevision: 5.30.0
+    helm:
