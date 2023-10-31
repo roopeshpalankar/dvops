@@ -2,7 +2,7 @@
     {
       "datasourceTemplate": "github-releases",
       "fileMatch": [
-        "*.yaml"
+          "\\.ya?ml"
       ],
       "matchStrings": [
         " +chartVersion: +(?<currentValue>[^'\" ]+) +# renovate: depName=(?<depName>[^ \\n]+) +(extractVersion=(?<extractVersion>[^\\n]+))?",
