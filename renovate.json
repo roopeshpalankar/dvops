@@ -1,4 +1,5 @@
-  "regexManagers": [
+{
+"regexManagers": [
     {
       "datasourceTemplate": "github-releases",
       "fileMatch": [
@@ -9,3 +10,4 @@
       ],
     },
   ]
+}
