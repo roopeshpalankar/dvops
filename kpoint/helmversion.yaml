@@ -1,0 +1,25 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: vault
+
+# make sure namespace exists
+resources:
+- namespace.yaml
+
+# custom index.html file
+
+
+#vault helm chart
+helmChartInflationGenerator:
+- chartName: vault
+  chartRepoUrl: https://helm.releases.hashicorp.com
+  chartVersion: 0.23.0
+  releaseName: vault
+  releaseNamespace: vault
+  # override with these custom values
+  values: values.yaml
+
+generatorOptions:
+  disableNameSuffixHash: true
+
