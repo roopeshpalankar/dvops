@@ -6,7 +6,12 @@
         "kpoint/.*\\.yaml"
       ],
       "matchStrings": [
-        " +chartVersion: +(?<currentValue>[^'\" ]+) +# renovate: depName=argoproj/argo-helm extractVersion=argo-cd-(?<version>.+)$",
+         " +(?:version|'version'|\"version\") *: +(?<currentValue>[^'\" \\n]+) +# renovate: depName=(?<depName>(?<packageName>[^'\" .@/\\n]+/[^'\" @/\\n]+)(/[^'\" /@\\n]+)*)",
+         " +(?:version|'version'|\"version\") *: +'(?<currentValue>[^'\" \\n]+)' +# renovate: depName=(?<depName>(?<packageName>[^'\" .@/\\n]+/[^'\" @/\\n]+)(/[^'\" /@\\n]+)*)",
+         " +(?:version|'version'|\"version\") *: +\"(?<currentValue>[^'\" \\n]+)\" +# renovate: depName=(?<depName>(?<packageName>[^'\" .@/\\n]+/[^'\" @/\\n]+)(/[^'\" /@\\n]+)*)",
+         " +(?:name|'name'|\"name\") *: +(?<depName>(?<packageName>[^'\" .@/\\n]+/[^'\" @/\\n]+)(/[^'\" /@\\n]+)*)@(?<currentValue>[^'\" \\n]+)",
+         " +(?:name|'name'|\"name\") *: +'(?<depName>(?<packageName>[^'\" .@/\\n]+/[^'\" @/\\n]+)(/[^'\" /@\\n]+)*)@(?<currentValue>[^'\" \\n]+)'",
+         " +(?:name|'name'|\"name\") *: +\"(?<depName>(?<packageName>[^'\" .@/\\n]+/[^'\" @/\\n]+)(/[^'\" /@\\n]+)*)@(?<currentValue>[^'\" \\n]+)\""
       ],
     },
   ]
