@@ -3,7 +3,7 @@
       {
          "datasourceTemplate": "github-releases",
          "fileMatch": [
-            "\\.?kpoint\\.ya?ml"
+            "\\.?kpoint\\.yaml"
          ],
          "matchStrings": [
             " +(?:version|'version'|\"version\") *: +(?<currentValue>[^'\" \\n]+) +# renovate: depName=(?<depName>(?<packageName>[^'\" .@/\\n]+/[^'\" @/\\n]+)(/[^'\" /@\\n]+)*)",
