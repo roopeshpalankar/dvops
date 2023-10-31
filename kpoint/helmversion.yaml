@@ -14,7 +14,7 @@ resources:
 helmChartInflationGenerator:
 - chartName: vault
   chartRepoUrl: https://helm.releases.hashicorp.com
-  chartVersion: 0.23.0
+  chartVersion: 0.22.0
   releaseName: vault
   releaseNamespace: vault
   # override with these custom values
