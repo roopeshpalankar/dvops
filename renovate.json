@@ -6,7 +6,7 @@
         "kpoint/.*\\.yaml"
       ],
       "matchStrings": [
-        " +chartVersion: +(?<currentValue>[^'\" ]+) +# renovate: depName=(?<depName>[^ \\n]+) +(extractVersion=(?<extractVersion>[^\\n]+))?",
+        " +chartVersion: +(?<currentValue>[^'\" ]+) +# renovate: depName=argoproj/argo-helm extractVersion=^argo-cd-(?<version>.+)$",
       ],
     },
   ]
