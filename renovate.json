@@ -1,13 +1,11 @@
 {
-"regexManagers": [
-    {
-      "datasourceTemplate": "github-releases",
-      "fileMatch": [
-        "kpoint/.*\\.yaml"
-      ],
-      "matchStrings": [
-         targetRevision: 5.31.0 renovate: depName=argoproj/argo-helm extractVersion=^argo-cd-(?<version>.+)$
-      ],
-    },
-  ]
-}
+    "regexManagers": [
+      {
+        "fileMatch": ["kpoint/helmversion.yaml"],
+        "matchStrings": [
+          "# datasource=(?<datasource>.*?) depName=(?<depName>.*?) versioning=(?<versioning>.*?)?\\s[A-Z]+_VERSION: (?<currentValue>.*)?\\s"
+        ],
+        "matchStringsStrategy": "any"
+      }
+    ]
+  }
