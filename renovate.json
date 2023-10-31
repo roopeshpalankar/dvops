@@ -6,7 +6,7 @@
         "kpoint/.*\\.yaml"
       ],
       "matchStrings": [
-         targetRevision: 5.31.0 renovate: depName=argoproj/argo-helm extractVersion=argo-cd-(?<version>.+)$
+         targetRevision: 5.31.0 renovate: depName=argoproj/argo-helm extractVersion=^argo-cd-(?<version>.+)$
       ],
     },
   ]
